@@ -19,6 +19,11 @@ If the skill and the README ever disagree, the README wins. Tell the user about 
 
 ## How to run it
 
+0. **Check the attribute inventory.** If the tracker's **Last inventory refresh** is more than 30 days old
+   or has never run, run the README's "Attribute inventory refresh" before anything else. Use the dbt MCP,
+   with aggregates only. Every attribute is marked (⏸ excluded / 🆕 unbanded / 🗄 retired), never removed.
+   Tell the user about any changes. If the requested attribute is ⏸ excluded, say so and ask before
+   building it.
 1. **Find the attribute** from the argument or the request. Look it up in `TRACKER.md` to get its priority
    band and current status. If it's already partly built, start from the first phase whose exit condition
    isn't met. Never assume a 🟡 item is correct.
@@ -30,6 +35,15 @@ If the skill and the README ever disagree, the README wins. Tell the user about 
    approval of the report counts.
 4. **Update the tracker as you go**, following the README's "Keep `TRACKER.md` current" table. Don't leave
    tracker updates until the end.
+5. **Sync the Confluence Progress tracker** after phase 3 approval and at phase 8. Follow the README's "Sync
+   to Confluence":
+   - fetch the latest page
+   - change **only** the Progress tracker section. Nothing else on the document may change: no wording,
+     formatting, ordering or "tidy-ups" elsewhere, even if something looks wrong (tell the user instead).
+     Diff the body outside the section before and after; it must be identical.
+   - **present the draft and wait for approval before publishing**
+   - re-fetch to confirm it rendered
+   `TRACKER.md` is the source of truth. Never edit Confluence without updating the tracker too.
 
 ## Non-negotiables (quick reference; full detail in the README)
 
